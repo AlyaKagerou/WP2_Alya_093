@@ -12,7 +12,7 @@ class Kasir extends CI_Controller{
     }
     public function index(){
         $this->data['title'] = 'Data Kasir';
-        $this->data['all kasir'] = $this->m_kasir->lihat();
+        $this->data['all_kasir'] = $this->m_kasir->lihat();
         $this->data['no'] = 1;
 
         $this->load->view('kasir/lihat', $this->data);
@@ -22,7 +22,7 @@ class Kasir extends CI_Controller{
     public function tambah(){
         if($this->session->login['role'] == 'kasir'){
             $this->session->set_flashdata('error', 'Tambah data hanya untuk admin!');
-            redirect('penjualan');
+            redirect('kasir');
         }
         $this->data['title'] = 'Tambah Kasir';
         $this->load->view('kasir/tambah', $this->data);
@@ -30,7 +30,7 @@ class Kasir extends CI_Controller{
     public function proses_tambah(){
         if($this->session->login['role'] = 'kasir'){
             $this->session->set_flashdata('error', 'Tambah data hanya untuk admin!');
-            redirect('penjualan');
+            redirect('kasir');
         }
         $data = [
             'kode_kasir' => $this->input->post('kode_kasir'),
@@ -50,7 +50,7 @@ class Kasir extends CI_Controller{
     public function ubah($id){
         if($this->session->login['role'] == 'kasir'){
             $this->session->set_flashdata('error', 'Ubah Data hanya untuk admin!');
-            redirect('penjualan');
+            redirect('kasir');
         }
         $this->data['title'] = 'Ubah Kasir';
         $this->data['kasir'] = $this->m_kasir->lihat_id($id);
@@ -59,7 +59,7 @@ class Kasir extends CI_Controller{
     public function proses_ubah($id){
         if($this->session->login['role'] = 'kasir'){
             $this->session->set_flashdata('error', 'Ubah data hanya untuk admin!');
-            redirect('penjualan');
+            redirect('kasir');
         }
         $data = [
             'kode_kasir' => $this->input->post('kode_kasir'),
@@ -79,7 +79,7 @@ class Kasir extends CI_Controller{
     public function hapus($id){
         if($this->session->login['role'] == 'kasir'){
             $this->session->set_flashdata('error', 'Ubah Data hanya untuk admin!');
-            redirect('penjualan');
+            redirect('kasir');
         }
         if($this->m_kasir->hapus($id)){
             $this->session->set_flashdata('success', 'Data Kasir <strong>Berhasil</strong> Di hapus!');
