@@ -32,8 +32,8 @@
 								<form action="<?= base_url('customer/proses_ubah/' . $customer->id) ?>" id="form-tambah" method="POST">
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="kd_cusy"><strong>Kode Customer</strong></label>
-											<input type="text" name="kd_customer" placeholder="Masukkan Kode Customer" autocomplete="off"  class="form-control" required value="<?= $customer->kd_cust ?>" maxlength="8" readonly>
+											<label for="kd_cust"><strong>Kode Customer</strong></label>
+											<input type="text" name="kd_cust" placeholder="Masukkan Kode Customer" autocomplete="off"  class="form-control" required value="<?= $customer->kd_cust ?>" maxlength="8" readonly>
 										</div>
 										<div class="form-group col-md-6">
 											<label for="nm_cust"><strong>Nama Customer</strong></label>

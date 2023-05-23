@@ -23,6 +23,7 @@
 						<?php if ($this->session->login['role'] == 'admin'): ?>
 							<a href="<?= base_url('kasir/export') ?>" class="btn btn-danger btn-sm"><i class="fa fa-file-pdf"></i>&nbsp;&nbsp;Export</a>
 							<a href="<?= base_url('kasir/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+							<a href="<?= base_url('excel/export_excel_kasir') ?>" class="btn btn-success btn-sm"><i class="fa fa-file-excel"></i>&nbsp;&nbsp;Excel</a>
 						<?php endif ?>
 					</div>
 				</div>

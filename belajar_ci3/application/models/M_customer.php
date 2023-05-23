@@ -18,8 +18,8 @@ class M_customer extends CI_Model{
 		return $query->row();
 	}
 
-	public function lihat_username($username_kasir){
-		$query = $this->db->get_where($this->_table, ['username_kasir' => $username_kasir]);
+	public function lihat_customer($kd_cust){
+		$query = $this->db->get_where($this->_table, ['kd_cust' => $kd_cust]);
 		return $query->row();
 	}
 
@@ -35,6 +35,6 @@ class M_customer extends CI_Model{
 	}
 
 	public function hapus($id){
-		//return $this->db->delete($this->_table, ['id' => $id]);
+		return $this->db->delete($this->_table, ['id' => $id]);
 	}
 }
