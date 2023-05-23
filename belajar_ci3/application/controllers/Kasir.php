@@ -100,17 +100,19 @@ class Kasir extends CI_Controller{
 		}
 	}
 
-	public function export(){
-		$dompdf = new Dompdf();
-		// $this->data['perusahaan'] = $this->m_usaha->lihat();
-		$this->data['all_kasir'] = $this->m_kasir->lihat();
-		$this->data['title'] = 'Laporan Data Kasir';
-		$this->data['no'] = 1;
+	public function pdf(){
+		$this->load->library('dompdf_gen');
 
-		$dompdf->setPaper('A4', 'Landscape');
-		$html = $this->load->view('kasir/report', $this->data, true);
-		$dompdf->load_html($html);
-		$dompdf->render();
-		$dompdf->stream('Laporan Data Kasir Tanggal ' . date('d F Y'), array("Attachment" => false));
+		$data['all_kasir'] = $this->m_kasir->get_data('kasir')->result();
+		$this->load->view('laporan_kasir_pdf', $data); 
+
+		$paper_size = 'A4';
+		$orientation = 'landscape';
+		$html - $this->output->get_output();
+		$this->dompdf->set_paper($paper_size,$orientation);
+
+		$this->dompdf->load_html($html);
+		$this->dompdf->render();
+		$this->dompdf->stream('Laporan_kasir.pdf', array('Attachment'=>0));
 	}
 }
